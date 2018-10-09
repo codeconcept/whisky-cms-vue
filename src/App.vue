@@ -33,41 +33,11 @@
         <v-layout>
           <v-flex text-xs-center>
           <cc-main-header></cc-main-header>
-          <!-- card begin -->
           <v-layout row v-for="p in posts" :key="p.id">
-            <v-flex xs12 sm6 offset-sm3>
-              <v-card>
-                <v-img
-                  :src="p.image"
-                  height="200px"
-                >
-                </v-img>
-
-                <v-card-title primary-title>
-                  <div>
-                    <div class="headline">{{p.title}}</div>
-                    <span class="grey--text">{{p.subTitle}}</span>
-                  </div>
-                </v-card-title>
-
-                <v-card-actions>
-                  <v-btn flat>Partager</v-btn>
-                  <v-btn flat color="purple">Explorer</v-btn>
-                  <v-spacer></v-spacer>
-                  <v-btn icon @click="show = !show">
-                    <v-icon>{{ show ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
-                  </v-btn>
-                </v-card-actions>
-
-                <v-slide-y-transition>
-                  <v-card-text v-show="show">
-                    {{p.content}}
-                  </v-card-text>
-                </v-slide-y-transition>
-              </v-card>
-            </v-flex>
-            </v-layout>
-          <!-- card end -->
+            <!-- card begin -->
+            <cc-blog-card :blog-post='p'></cc-blog-card>
+            <!-- card end -->
+          </v-layout>
 
           </v-flex>
         </v-layout>
@@ -81,11 +51,13 @@
 
 <script>
 import MainHeader from './components/MainHeader.vue';
+import BlogCard from './components/BlogCard.vue';
 
 export default {
   name: 'app',
   components: {
     ccMainHeader: MainHeader,
+    ccBlogCard: BlogCard,
   },
   data: () => ({
     drawer: null,
