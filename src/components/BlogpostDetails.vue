@@ -1,5 +1,5 @@
 <template>
-  <h2></h2>
+  <h2>détails du blog post {{this.$route.params.id}}</h2>
 </template>
 
 <script>

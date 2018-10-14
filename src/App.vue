@@ -32,13 +32,7 @@
       <v-container fluid fill-height>
         <v-layout>
           <v-flex text-xs-center>
-          <cc-main-header></cc-main-header>
-          <v-layout row v-for="p in posts" :key="p.id">
-            <!-- card begin -->
-            <cc-blog-card :blog-post='p'></cc-blog-card>
-            <!-- card end -->
-          </v-layout>
-
+          <router-view />
           </v-flex>
         </v-layout>
       </v-container>
@@ -50,29 +44,13 @@
 </template>
 
 <script>
-import axios from 'axios';
-import MainHeader from './components/MainHeader.vue';
-import BlogCard from './components/BlogCard.vue';
 
 export default {
   name: 'app',
-  components: {
-    ccMainHeader: MainHeader,
-    ccBlogCard: BlogCard,
-  },
   data: () => ({
     drawer: null,
     show: false,
-    posts: [],
   }),
-  created() {
-    axios
-      .get('http://localhost:8081/api/v1/posts')
-      .then((result) => {
-        this.posts = result.data;
-      })
-      .catch(err => console.error(err));
-  },
   methods: {
     toDo() {
       console.log('todo');

@@ -9,7 +9,9 @@
 
         <v-card-title primary-title>
           <div>
-            <div class="headline">{{blogPost.title}}</div>
+            <div class="headline">
+              <router-link :to="`/blog-post/${blogPost.id}`">{{blogPost.title}}</router-link>
+            </div>
             <span class="grey--text">{{blogPost.subTitle}}</span>
           </div>
         </v-card-title>
