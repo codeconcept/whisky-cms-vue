@@ -8,9 +8,11 @@ import './plugins/vuetify';
 import App from './App.vue';
 import BlogpostDetails from './components/BlogpostDetails.vue';
 import HomePage from './components/HomePage.vue';
+import ContactPage from './components/ContactPage.vue';
 
 const routes = [
   { path: '/', component: HomePage },
+  { path: '/contact', component: ContactPage },
   { path: '/blog-post/:id', component: BlogpostDetails },
 ];
 

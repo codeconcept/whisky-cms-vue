@@ -6,7 +6,7 @@
       app
     >
       <v-list dense>
-        <v-list-tile @click="toDo">
+        <v-list-tile @click="gotTo('/')">
           <v-list-tile-action>
             <v-icon>home</v-icon>
           </v-list-tile-action>
@@ -14,7 +14,7 @@
             <v-list-tile-title>Accueil</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="toDo">
+        <v-list-tile @click="gotTo('contact')">
           <v-list-tile-action>
             <v-icon>contact_mail</v-icon>
           </v-list-tile-action>
@@ -52,8 +52,8 @@ export default {
     show: false,
   }),
   methods: {
-    toDo() {
-      console.log('todo');
+    gotTo(routeName) {
+      this.$router.push(routeName);
     },
   },
   props: {
@@ -61,3 +61,10 @@ export default {
   },
 };
 </script>
+
+<style>
+a {
+  color: #9c27b0;
+  text-decoration: none;
+}
+</style>
